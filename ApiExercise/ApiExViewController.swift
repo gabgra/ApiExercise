@@ -60,9 +60,13 @@ class ApiExViewController: UITableViewController{
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ApiExViewCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ApiExViewCell", for: indexPath) as! CountryCell
        
-        cell.textLabel?.text = countryName[indexPath.row].name
+        //cell.textLabel?.text = countryName[indexPath.row].name
+        cell.countryLabel.text = "Name: \(countryName[indexPath.row].name)"
+        cell.capitalLabel.text = "Capital: \(countryName[indexPath.row].capital)"
+        cell.regionLabel.text = "Region: \(countryName[indexPath.row].region)"
+
         
         return cell
     }
